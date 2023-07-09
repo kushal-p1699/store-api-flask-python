@@ -57,6 +57,18 @@
    CMD [ "flask", "run", "--host", "0.0.0.0" ]
    ```
 
+   if ur using `requirments.txt`.
+
+   ```Dockerfile
+   FROM python:3.10
+   EXPOSE 5000
+   WORKDIR /app
+   COPY requirements.txt .
+   RUN pip install -r requirements.txt
+   COPY . .
+   CMD [ "flask", "run", "--host", "0.0.0.0" ]
+   ```
+
 3. Building docker image
 
    ```linux
@@ -67,4 +79,10 @@
 
    ```linux
    docker run -p 5000:5000 store-api-flask-python
+   ```
+
+   If your changes needs to be reflected immediately then you need to volume mount your current working dir.
+
+   ```linux
+   docker run -p 5000:5000 -w /app -v "E:\Python Projects\Flask Projects\Store-api" store-api-flask-python
    ```
