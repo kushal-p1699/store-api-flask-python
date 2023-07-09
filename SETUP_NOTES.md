@@ -28,6 +28,21 @@
    flask run
    ```
 
+6. Installing dependencies using `requirement.txt` file.
+
+   ```linux
+   pip install -r requirement.txt
+   ```
+
+7. Setting flask env to activate a debugger in dev mode.
+
+   ```text
+   FLASK_APP=app
+   FLASK_DEBUG=1
+   ```
+
+   Note: `pip install python-dotenv` is required to use .flaskenv file.
+
 ## Running flask app in Docker
 
 1. Make sure you have docker installed in your system.
