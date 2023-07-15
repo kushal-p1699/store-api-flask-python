@@ -72,7 +72,7 @@
 3. Building docker image
 
    ```linux
-   docker run -t store-api-flask-python .
+   docker build -t store-api-flask-python .
    ```
 
 4. Running docker image
