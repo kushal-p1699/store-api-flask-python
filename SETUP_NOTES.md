@@ -86,3 +86,21 @@
    ```linux
    docker run -p 5000:5000 -w /app -v "E:\Python Projects\Flask Projects\Store-api" store-api-flask-python
    ```
+
+### Adding Schemas
+
+Creating a schema by defining a class with variables mapping attribute names to Field objects.
+
+```python
+from marshmallow import Schema, fields
+
+
+class UserSchema(Schema):
+    id = fields.Str(dump_only=True)
+    name = fields.Str(required=True)
+    email = fields.Email(required=True)
+    created_at = fields.DateTime(required=True)
+```
+
+- `dump_only` is used when the property is used only when returning a response.
+- `required` will validate if a property present in the payload or not.
