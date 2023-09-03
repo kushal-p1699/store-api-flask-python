@@ -104,3 +104,26 @@ class UserSchema(Schema):
 
 - `dump_only` is used when the property is used only when returning a response.
 - `required` will validate if a property present in the payload or not.
+
+#### Decorating routes with schemas
+
+```python
+
+from schemas import ItemSchema
+
+@blp.route('/item/<string:item_id')
+class Item(MethodView):
+   @blp.response(200, ItemSchema(many=True)):
+   def get(self, item_id):
+      ....
+      return items[item_id]
+
+   @blp.arguments(ItemSchema)
+   @blp.response(200, ItemSchema)
+   def post(self, item_data):
+      .....
+
+```
+
+- `@blp.arguments` is used to plugin the schema into the method.
+- `@blp.response` is used to decorate the response in the format of schema. `many=True` specifies that response will be list of schema's
