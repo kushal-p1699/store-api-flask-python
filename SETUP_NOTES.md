@@ -127,3 +127,14 @@ class Item(MethodView):
 
 - `@blp.arguments` is used to plugin the schema into the method.
 - `@blp.response` is used to decorate the response in the format of schema. `many=True` specifies that response will be list of schema's
+
+### SQLAlchemy
+
+SQLAlchemy is ORM (Object Relational Model) designed for efficient and high-performing database access, adapted into a simple and Pythonic domain language.
+
+Benifits:
+
+- Multi-threading support.
+- Handles DDL and DML at high-level.
+- Easy to do DB migration.
+- Makes code cleaner and shorter.
