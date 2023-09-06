@@ -55,6 +55,6 @@ class ItemList(MethodView):
         try:
             db.session.add(item)
             db.session.commit()
-        except SQLAlchemyError:
+        except SQLAlchemyError as err:
             abort(500, message="An error occurred while inserting the item.")
         return item, 201
