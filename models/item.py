@@ -10,6 +10,6 @@ class ItemModel(db.Model):
     store_id = db.Column(
         db.Integer, db.ForeignKey("stores.id"), unique=False, nullable=False
     )
-    # keeping store object associated with foreign key for easy access
+    # keeping store object associated with foreign key
     store = db.relationship("StoreModel", back_populates="items")
     tags = db.relationship("TagModel", back_populates="items", secondary="items_tags")
